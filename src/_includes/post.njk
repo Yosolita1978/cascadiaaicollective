@@ -1,0 +1,32 @@
+---
+layout: base.njk
+---
+
+<main id="main" class="post-page">
+  <article class="container post">
+    <header class="post-header">
+      <a href="/blog/" class="post-back">&larr; Back to blog</a>
+      <h1 class="post-title">{{ title }}</h1>
+      <div class="post-meta">
+        {% if author %}<span class="post-author">By {{ author }}</span>{% endif %}
+        <time class="post-date" datetime="{{ date | date("%Y-%m-%d") }}">{{ date | date("%B %d, %Y") }}</time>
+      </div>
+      {% if summary %}
+      <p class="post-summary">{{ summary }}</p>
+      {% endif %}
+    </header>
+
+    {% if featuredImage %}
+    <figure class="post-featured-image">
+      <img src="{{ featuredImage }}" alt="{{ featuredImageAlt or title }}">
+      {% if featuredImageCaption %}
+      <figcaption>{{ featuredImageCaption }}</figcaption>
+      {% endif %}
+    </figure>
+    {% endif %}
+
+    <div class="post-body">
+      {{ content | safe }}
+    </div>
+  </article>
+</main>

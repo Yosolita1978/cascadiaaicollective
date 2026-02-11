@@ -1,0 +1,13 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm install
+    build:
+      commands:
+        - npx eleventy
+  artifacts:
+    baseDirectory: _site
+    files:
+      - '**/*'

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}</title>
+  {% if description %}
+  <meta name="description" content="{{ description }}">
+  {% endif %}
+  {% if canonical %}
+  <link rel="canonical" href="{{ canonical }}">
+  {% endif %}
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{ ogTitle or title }}">
+  {% if description %}
+  <meta property="og:description" content="{{ ogDescription or description }}">
+  {% endif %}
+  <meta property="og:type" content="website">
+  {% if canonical %}
+  <meta property="og:url" content="{{ canonical }}">
+  {% endif %}
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Cascadia AI Collective">
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ ogTitle or title }}">
+  {% if description %}
+  <meta name="twitter:description" content="{{ ogDescription or description }}">
+  {% endif %}
+
+  {% if preloadImage %}
+  <link rel="preload" as="image" href="{{ preloadImage }}">
+  {% endif %}
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+  <!-- Skip Link -->
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  {{ content | safe }}
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-text">&copy; 2026 Cascadia AI Collective. All rights reserved.</p>
+      <p class="footer-links">
+        <a href="/blog/">Blog</a>
+        <a href="https://www.linkedin.com/groups/17757041/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
