@@ -1,16 +1,16 @@
 ---
-title: "I Didn't Need AI. I Needed a Cron Job (So I Used GitHub Actions)"
+title: I Didn't Need AI. I Needed a Cron Job (So I Used GitHub Actions)
 date: 2026-02-10
-author: "Cristina Rodriguez"
-summary: "If you need something to run every week and you're tired of being the scheduler… Use GitHub Actions."
-featuredImage: "/images/blog/github-actions-cron.png"
-featuredImageAlt: "GitHub Actions workflow running on a schedule"
-featuredImageCaption: ""
+author: Cristina Rodriguez
+summary: If you need something to run every week and you're tired of being the scheduler… Use GitHub Actions
+featuredImage: /images/blog/github-actions-cron.png
+featuredImageAlt: GitHub Actions workflow running on a schedule
+featuredImageCaption: ''
 ---
 
 If you need something to run **every week** and you're tired of being the scheduler…
 
-Use **GitHub Actions**.
+Use [**GitHub Actions**](https://github.com/features/actions).
 
 You'll create one YAML file. Add a cron line. Push. Done.
 
