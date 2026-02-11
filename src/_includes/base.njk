@@ -4,35 +4,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ title }}</title>
-  {% if description %}
-  <meta name="description" content="{{ description }}">
+  {% if description or summary %}
+  <meta name="description" content="{{ description or summary }}">
   {% endif %}
-  {% if canonical %}
-  <link rel="canonical" href="{{ canonical }}">
-  {% endif %}
+  <link rel="canonical" href="https://cascadiaai.org{{ page.url }}">
 
   <!-- Open Graph -->
   <meta property="og:title" content="{{ ogTitle or title }}">
-  {% if description %}
-  <meta property="og:description" content="{{ ogDescription or description }}">
+  {% if description or summary %}
+  <meta property="og:description" content="{{ ogDescription or description or summary }}">
   {% endif %}
-  <meta property="og:type" content="website">
-  {% if canonical %}
-  <meta property="og:url" content="{{ canonical }}">
-  {% endif %}
+  <meta property="og:type" content="{{ ogType or 'website' }}">
+  <meta property="og:url" content="https://cascadiaai.org{{ page.url }}">
   <meta property="og:locale" content="en_US">
   <meta property="og:site_name" content="Cascadia AI Collective">
+  {% if featuredImage %}
+  <meta property="og:image" content="https://cascadiaai.org{{ featuredImage }}">
+  {% endif %}
 
   <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ ogTitle or title }}">
-  {% if description %}
-  <meta name="twitter:description" content="{{ ogDescription or description }}">
+  {% if description or summary %}
+  <meta name="twitter:description" content="{{ ogDescription or description or summary }}">
+  {% endif %}
+  {% if featuredImage %}
+  <meta name="twitter:image" content="https://cascadiaai.org{{ featuredImage }}">
   {% endif %}
 
   {% if preloadImage %}
   <link rel="preload" as="image" href="{{ preloadImage }}">
   {% endif %}
+
+  <!-- RSS Feed -->
+  <link rel="alternate" type="application/rss+xml" title="Cascadia AI Collective Blog" href="/feed.xml">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,6 +59,7 @@
       <p class="footer-text">&copy; 2026 Cascadia AI Collective. All rights reserved.</p>
       <p class="footer-links">
         <a href="/blog/">Blog</a>
+        <a href="/feed.xml">RSS</a>
         <a href="https://www.linkedin.com/groups/17757041/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </p>
     </div>

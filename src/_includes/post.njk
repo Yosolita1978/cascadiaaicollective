@@ -1,6 +1,34 @@
 ---
 layout: base.njk
+ogType: article
 ---
+
+<!-- Article Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ title }}",
+  "description": "{{ summary }}",
+  "datePublished": "{{ date | date("%Y-%m-%d") }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ author }}"
+  },
+  {% if featuredImage %}
+  "image": "https://cascadiaai.org{{ featuredImage }}",
+  {% endif %}
+  "publisher": {
+    "@type": "Organization",
+    "name": "Cascadia AI Collective",
+    "url": "https://cascadiaai.org"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://cascadiaai.org{{ page.url }}"
+  }
+}
+</script>
 
 <main id="main" class="post-page">
   <article class="container post">

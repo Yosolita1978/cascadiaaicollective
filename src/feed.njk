@@ -1,0 +1,24 @@
+---
+permalink: /feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cascadia AI Collective Blog</title>
+    <link>https://cascadiaai.org/blog/</link>
+    <description>Articles, tutorials, and stories from the Cascadia AI Collective community.</description>
+    <language>en-us</language>
+    <atom:link href="https://cascadiaai.org/feed.xml" rel="self" type="application/rss+xml"/>
+    {% for post in collections.blog | reverse %}
+    <item>
+      <title>{{ post.data.title }}</title>
+      <link>https://cascadiaai.org{{ post.url }}</link>
+      <guid isPermaLink="true">https://cascadiaai.org{{ post.url }}</guid>
+      <pubDate>{{ post.date.toUTCString() }}</pubDate>
+      {% if post.data.author %}<author>hello@cascadiaai.org ({{ post.data.author }})</author>{% endif %}
+      {% if post.data.summary %}<description>{{ post.data.summary }}</description>{% endif %}
+    </item>
+    {% endfor %}
+  </channel>
+</rss>
